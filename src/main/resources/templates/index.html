@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <title>Successful login</title>
+</head>
+<body>
+<div class="container" style="text-align: center">
+    <div class="row">
+        <div class="col-12">
+            <h2>Add your favourite names!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="post" th:action="@{/visitor/add}">
+                <div class="input-group mb-3">
+                    <input class="form-control" name="name" type="text">
+                    <div class="input-group-append">
+                        <input class="btn btn-outline-secondary" type="submit" value="Add Name"></input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date Entered</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="visitor: ${visitors}">
+        <td th:text="${visitor.id}"/>
+        <td th:text="${visitor.name}"/>
+        <td th:text="${visitor.date_created}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
